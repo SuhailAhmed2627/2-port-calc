@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+* {
+   font-family: 'Poppins', sans-serif;
+   color: #0f0f0f;
+}
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+*::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+   background-color: #000000;
+}
+
+*::-webkit-scrollbar {
+   width: 4px;
+   background-color: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+   background-color: #f5f5f5;
+}
+
+h1 {
+   font-size: 4rem;
+   color: rgb(56, 56, 56);
+   font-weight:300;
+   letter-spacing: 5px;
+   text-transform: uppercase;
+}
+
+.flex-center {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+html {
+   width: 100%;
+}
+
+body {
+   height: 100vh;
+   width: 100%;
+}
+
+.page-container {
+   background-color: #bdd4e7;
+   background-image: linear-gradient(315deg, #bdd4e7 0%, #a6b7d6 74%);
+   width: 100%;
+   height: 100%;
+}
+
+.card {
+   border: none;
+   width: 900px;
+   height: 600px;
+   background-image: linear-gradient(315deg, #bdd4e7 0%, #a6b7d6 74%);
+   backdrop-filter: blur(5px);
+   border-radius: 20px;
+}
+
+.dropdown-container {
+   width: 90%;
+   height: 80px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+
+.xrow {
+   width: 90%;
+   height: 20%;
+   margin-bottom: 30px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   gap: 30px;
+}
+
+.xcol {
+   width: 20%;
+   height: 100%;
+   border: none;
+}
+
+.xrow > input, .xrow > p {
+   padding-left: 5px;
+   background-color: transparent;
+   border-bottom: 1px solid #000000;
+}
+
+.xrow > p {
+   min-width: max-content;
+   height: 100%;
+   margin-bottom: 0px;
+   text-align: center;
+   padding-left: 0px;
+}
+
+.xrow > input:focus {
+   outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+input[type=number] {
+   -moz-appearance: textfield;
+}
+
+.answer-container {
+   width: 90%;
+   height: 300px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+
+.container {
+   padding: 0;
+   width: 40%;
+   height: 90%;
+   position: relative;
+}
+
+#a, #b {
+   position: absolute;
+   top: 0;
+   left: 0;
+   margin: 0 auto;
+   z-index: 10;
+   width: 100%;
+   height: 100%;
+}
+
