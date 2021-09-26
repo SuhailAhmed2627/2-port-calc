@@ -51,6 +51,8 @@ const input = [A, B, C, D];
 const output = [P, Q, R, S];
 const inputC = [Ac, Bc, Cc, Dc];
 
+let isComplexNumber = false;
+
 const selectA = document.getElementById("select-A");
 const selectB = document.getElementById("select-B");
 
@@ -64,11 +66,19 @@ const handleOnChange = (event) => {
    ZContainer.style.display = "none";
 
    if (event.target.id == "complex-switch") {
+      isComplexNumber = !isComplexNumber;
       const complexElements = document.getElementsByClassName("complex");
       [...complexElements].forEach((element) => {
-         element.style.display = event.target.value == "on" ? "flex" : "none";
+         element.style.display = isComplexNumber ? "flex" : "none";
       });
-      event.target.value = event.target.value == "on" ? "off" : "on";
+      const xRowElements = document.getElementsByClassName("xrow");
+      [...xRowElements].forEach((element, index) => {
+         if (index < 2) {
+            element.style.gap = isComplexNumber ? "10px" : "30px";
+         }
+      });
+      event.target.value = isComplexNumber ? "off" : "on";
+      reset();
    }
 
    if (event.target.id == "select-B") {
@@ -105,16 +115,25 @@ const convert = () => {
       return;
    }
 
-   const [a, b, c, d] = input.map((x) => x.value);
+   const [a, b, c, d] = input.map((x, index) => {
+      if (isComplexNumber) {
+         return new Complex(x.value, inputC[index].value);
+      }
+      return new Complex(x.value, 0);
+   });
    let [p, q, r, s] = [];
 
    switch (`${selectA.value}to${selectB.value}`) {
       case "ztoy":
       case "ytoz":
-         p = d / (a * d - b * c);
-         q = -b / (a * d - b * c);
-         r = -c / (a * d - b * c);
-         s = a / (a * d - b * c);
+         p = d.divide(a.multiply(d).subtract(b.multiply(c)));
+         q = new Complex(0, 0)
+            .subtract(b)
+            .divide(a.multiply(d).subtract(b.multiply(c)));
+         r = new Complex(0, 0)
+            .subtract(c)
+            .divide(a.multiply(d).subtract(b.multiply(c)));
+         s = a.divide(a.multiply(d).subtract(b.multiply(c)));
          break;
 
       case "ztoabcd":
@@ -216,7 +235,14 @@ const convert = () => {
          break;
    }
    console.log([p, q, r, s]);
-   [p, q, r, s] = [p, q, r, s].map((x) => Math.round(1000 * x) / 1000);
+   [p, q, r, s] = [p, q, r, s].map((x) => {
+      if (isComplexNumber) {
+         return `${Math.round(1000 * x.real) / 1000} ${
+            x.img < 0 ? "-" : "+"
+         } i${Math.abs(Math.round(1000 * x.img) / 1000)}`;
+      }
+      return Math.round(1000 * x.real) / 1000;
+   });
    P.innerText = p;
    Q.innerText = q;
    R.innerText = r;
