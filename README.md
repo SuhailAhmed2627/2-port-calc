@@ -2,10 +2,11 @@
 
 [Click Here to use the Calculator](https://suhailahmed2627.github.io/2-port-calc/)
 
-A simple calculator made to make life simpler for students willing to learn about Two-Port Networks. \
+A simple calculator made to make life simpler for students willing to learn about Two-Port Networks.
+
 This is an Assignment for ECPC11 - Network Analysis and Synthesis by Dr. S Raghavan of ECE Department, NIT Trichy \
 For More Information about ECE Department of NIT Trichy, [Click Here](https://www.nitt.edu/home/academics/departments/ece/) \
-To Learn about Microwaves and NITT's Contribution. [Click Here](https://www.microwaves101.com/encyclopedias/national-institute-of-technology-trichy) \
+To Learn about Microwaves and NITT's Contribution. [Click Here](https://www.microwaves101.com/encyclopedias/national-institute-of-technology-trichy)
 
 You are Welcome to Modify this Code to Add Features❤️ \
 Formulas used in thr Program can be found at \
