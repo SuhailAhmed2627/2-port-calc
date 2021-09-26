@@ -3,6 +3,9 @@ const B = document.getElementById("B");
 const C = document.getElementById("C");
 const D = document.getElementById("D");
 
+const ZContainer = document.getElementById("z-input-container");
+const Z0 = document.getElementById("Z0");
+
 const P = document.getElementById("P");
 const Q = document.getElementById("Q");
 const R = document.getElementById("R");
@@ -21,14 +24,17 @@ const reset = () => {
 };
 
 const handleOnChange = (event) => {
+   ZContainer.style.display = "none";
+
    if (event.target.id == "select-B") {
       reset();
    }
 
    if (
-      (selectA.value == "s" && selectB == "abcd") ||
-      (selectA.value == "abcd" && selectB == "s")
+      (selectA.value === "s" && selectB.value === "abcd") ||
+      (selectA.value == "abcd" && selectB.value == "s")
    ) {
+      ZContainer.style.display = "inline";
    }
 };
 
@@ -36,7 +42,8 @@ const convert = () => {
    console.log(`${selectA.value}to${selectB.value}`);
    if (
       selectA.value == "Select a Parameter" ||
-      selectB.value == "Select a Parameter"
+      selectB.value == "Select a Parameter" ||
+      selectA.value == selectB.value
    ) {
       Toastify({
          text: "Select Parameters",
