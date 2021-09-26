@@ -151,7 +151,7 @@ const convert = () => {
          p = one.divide(a);
          q = zero.subtract(b).divide(a);
          r = c.divide(a);
-         s = a.multiply(d).subtract(b.multiply(c)).divide(d);
+         s = a.multiply(d).subtract(b.multiply(c)).divide(a);
          break;
 
       case "ytoh":
