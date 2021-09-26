@@ -61,7 +61,7 @@ const convert = () => {
       case "ytoz":
          p = d / (a * d - b * c);
          q = -b / (a * d - b * c);
-         r = -d / (a * d - b * c);
+         r = -c / (a * d - b * c);
          s = a / (a * d - b * c);
          break;
 
@@ -163,7 +163,7 @@ const convert = () => {
       default:
          break;
    }
-
+   console.log([p, q, r, s]);
    [p, q, r, s] = [p, q, r, s].map((x) => Math.round(1000 * x) / 1000);
    P.innerText = p;
    Q.innerText = q;

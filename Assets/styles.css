@@ -149,9 +149,11 @@ input[type=number] {
    height: 100%;
 }
 .z-input-conatiner {
-   width: 300px;
+   width: 200px;
+   margin-bottom: 10px;
 }
 #Z0 {
-   width: fit-content;
+   width: 50px;
+   max-width: fit-content;
 }
 
