@@ -1,5 +1,7 @@
 # Two-Port Parameter Calculator 💡
 
+[Click Here to use the Calculator](https://suhailahmed2627.github.io/2-port-calc/)
+
 A simple calculator made to make life simpler for students willing to learn about Two-Port Networks. \
 This is an Assignment for ECPC11 - Network Analysis and Synthesis by Dr. S Raghavan of ECE Department, NIT Trichy \
 For More Information about ECE Department of NIT Trichy, [Click Here](https://www.nitt.edu/home/academics/departments/ece/) \
