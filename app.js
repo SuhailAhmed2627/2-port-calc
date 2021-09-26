@@ -20,6 +20,18 @@ const reset = () => {
    });
 };
 
+const handleOnChange = (event) => {
+   if (event.target.id == "select-B") {
+      reset();
+   }
+
+   if (
+      (selectA.value == "s" && selectB == "abcd") ||
+      (selectA.value == "abcd" && selectB == "s")
+   ) {
+   }
+};
+
 const convert = () => {
    console.log(`${selectA.value}to${selectB.value}`);
    if (
@@ -47,9 +59,9 @@ const convert = () => {
    switch (`${selectA.value}to${selectB.value}`) {
       case "ztoy":
       case "ytoz":
-         p = D / (a * d - b * c);
+         p = d / (a * d - b * c);
          q = -b / (a * d - b * c);
-         r = -C / (a * d - b * c);
+         r = -d / (a * d - b * c);
          s = a / (a * d - b * c);
          break;
 
@@ -118,6 +130,34 @@ const convert = () => {
          q = c / (a * d - b * c);
          r = b / (a * d - b * c);
          s = a / (a * d - b * c);
+         break;
+
+      case "gtoabcd":
+         p = 1 / c;
+         q = d / c;
+         r = a / c;
+         s = (a * d - b * c) / c;
+         break;
+
+      case "abcdtoy":
+         p = d / b;
+         q = -(a * d - b * c) / b;
+         r = -1 / b;
+         s = a / b;
+         break;
+
+      case "abcdtoh":
+         p = b / d;
+         q = (a * d - b * c) / d;
+         r = -1 / d;
+         s = c / d;
+         break;
+
+      case "abcdtog":
+         p = b / d;
+         q = (a * d - b * c) / d;
+         r = -1 / d;
+         s = c / d;
          break;
 
       default:

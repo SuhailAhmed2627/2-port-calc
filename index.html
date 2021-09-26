@@ -27,6 +27,7 @@
                   id="select-A"
                   class="form-select"
                   aria-label="Default select example"
+                  onchange="handleOnChange(event);"
                >
                   <option selected>Select a Parameter</option>
                   <option value="z">Z parameter</option>
@@ -40,6 +41,7 @@
                   id="select-B"
                   class="form-select"
                   aria-label="Default select example"
+                  onchange="handleOnChange(event);"
                >
                   <option selected>Select a Parameter</option>
                   <option value="z">Z parameter</option>
@@ -98,6 +100,10 @@
                   </div>
                </div>
             </div>
+            <span class="z-input-conatiner">
+               Enter Z0 =
+               <input type="number" id="Z0" />
+            </span>
             <button type="button" class="btn btn-primary" onclick="convert();">
                Convert
             </button>

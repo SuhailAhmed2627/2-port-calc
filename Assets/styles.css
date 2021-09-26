@@ -148,4 +148,10 @@ input[type=number] {
    width: 100%;
    height: 100%;
 }
+.z-input-conatiner {
+   width: 300px;
+}
+#Z0 {
+   width: fit-content;
+}
 
