@@ -5,29 +5,48 @@ class Complex {
    }
 
    add(complexNo) {
-      return new Complex(this.real + complexNo.real, this.img + complexNo.img);
+      const ans = new Complex(
+         this.real + complexNo.real,
+         this.img + complexNo.img
+      );
+      data.push(ans);
+      return ans;
    }
 
    subtract(complexNo) {
-      return new Complex(this.real - complexNo.real, this.img - complexNo.img);
+      const ans = new Complex(
+         this.real - complexNo.real,
+         this.img - complexNo.img
+      );
+      data.push(ans);
+      return ans;
    }
 
    multiply(complexNo) {
-      return new Complex(
+      const ans = new Complex(
          this.real * complexNo.real - this.img * complexNo.img,
          this.real * complexNo.img + this.img * complexNo.real
       );
+      data.push(ans);
+      return ans;
    }
 
    divide(complexNo) {
-      return new Complex(
+      const ans = new Complex(
          (this.real * complexNo.real + this.img * complexNo.img) /
             (complexNo.img * complexNo.img + complexNo.real * complexNo.real),
          (this.img * complexNo.real - this.real * complexNo.img) /
             (complexNo.img * complexNo.img + complexNo.real * complexNo.real)
       );
+      data.push(ans);
+      return ans;
    }
 }
+
+const one = new Complex(1, 0);
+const zero = new Complex(0, 0);
+
+let data = [];
 
 const A = document.getElementById("A");
 const B = document.getElementById("B");
@@ -130,12 +149,8 @@ const convert = () => {
       case "ztoy":
       case "ytoz":
          p = d.divide(a.multiply(d).subtract(b.multiply(c)));
-         q = new Complex(0, 0)
-            .subtract(b)
-            .divide(a.multiply(d).subtract(b.multiply(c)));
-         r = new Complex(0, 0)
-            .subtract(c)
-            .divide(a.multiply(d).subtract(b.multiply(c)));
+         q = zero.subtract(b).divide(a.multiply(d).subtract(b.multiply(c)));
+         r = zero.subtract(c).divide(a.multiply(d).subtract(b.multiply(c)));
          s = a.divide(a.multiply(d).subtract(b.multiply(c)));
          break;
 
@@ -143,95 +158,95 @@ const convert = () => {
       case "abcdtoz":
          p = a.divide(c);
          q = a.multiply(d).subtract(b.multiply(c)).divide(c);
-         r = 1 / c;
-         s = d / c;
+         r = one.divide(c);
+         s = d.divide(c);
          break;
 
       case "ztoh":
       case "htoz":
-         p = (a * d - b * c) / d;
-         q = b / d;
-         r = -c / d;
-         s = 1 / d;
+         p = a.multiply(d).subtract(b.multiply(c)).divide(d);
+         q = b.divide(d);
+         r = zero.subtract(c).divide(d);
+         s = one.divide(d);
          break;
 
       case "ztog":
       case "gtoz":
-         p = 1 / a;
-         q = -b / a;
-         r = c / a;
-         s = (a * d - b * c) / a;
+         p = one.divide(a);
+         q = zero.subtract(b).divide(a);
+         r = c.divide(a);
+         s = a.multiply(d).subtract(b.multiply(c)).divide(d);
          break;
 
       case "ytoh":
-         p = 1 / a;
-         q = -b / a;
-         r = c / a;
-         s = (a * d - b * c) / a;
+         p = one.divide(a);
+         q = zero.subtract(b).divide(a);
+         r = c.divide(a);
+         s = a.multiply(d).subtract(b.multiply(c)).divide(a);
          break;
 
       case "htoy":
-         p = 1 / a;
-         q = -b / a;
-         r = c / a;
-         s = -(a * d - b * c) / a;
+         p = one.divide(a);
+         q = zero.subtract(b).divide(a);
+         r = c.divide(a);
+         s = zero.subtract(a.multiply(d).subtract(b.multiply(c))).divide(a);
          break;
 
       case "ytog":
       case "gtoy":
-         p = (a * d - b * c) / d;
-         q = b / d;
-         r = -c / d;
-         s = 1 / d;
+         p = a.multiply(d).subtract(b.multiply(c)).divide(d);
+         q = b.divide(d);
+         r = zero.subtract(c).divide(d);
+         s = one.divide(d);
          break;
 
       case "ytoabcd":
-         p = -d / c;
-         q = -1 / c;
-         r = -(a * d - b * c) / c;
-         s = 1 / c;
+         p = zero.subtract(d).divide(c);
+         q = zero.subtract(one).divide(c);
+         r = zero.subtract(a.multiply(d).subtract(b.multiply(c))).divide(c);
+         s = one.divide(c);
          break;
 
       case "htog":
-         p = d / (a * d - b * c);
-         q = -c / (a * d - b * c);
-         r = -b / (a * d - b * c);
-         s = a / (a * d - b * c);
+         p = d.divide(a.multiply(d).subtract(b.multiply(c)));
+         q = zero.subtract(c).divide(a.multiply(d).subtract(b.multiply(c)));
+         r = zero.subtract(b).divide(a.multiply(d).subtract(b.multiply(c)));
+         s = a.divide(a.multiply(d).subtract(b.multiply(c)));
          break;
 
       case "gtoh":
-         p = d / (a * d - b * c);
-         q = c / (a * d - b * c);
-         r = b / (a * d - b * c);
-         s = a / (a * d - b * c);
+         p = d.divide(a.multiply(d).subtract(b.multiply(c)));
+         q = c.divide(a.multiply(d).subtract(b.multiply(c)));
+         r = b.divide(a.multiply(d).subtract(b.multiply(c)));
+         s = a.divide(a.multiply(d).subtract(b.multiply(c)));
          break;
 
       case "gtoabcd":
-         p = 1 / c;
-         q = d / c;
-         r = a / c;
-         s = (a * d - b * c) / c;
+         p = one.divide(c);
+         q = d.divide(c);
+         r = a.divide(c);
+         s = a.multiply(d).subtract(b.multiply(c)).divide(c);
          break;
 
       case "abcdtoy":
-         p = d / b;
-         q = -(a * d - b * c) / b;
-         r = -1 / b;
-         s = a / b;
+         p = d.divide(b);
+         q = zero.subtract(a.multiply(d).subtract(b.multiply(c))).divide(b);
+         r = zero.subtract(one).divide(b);
+         s = a.divide(b);
          break;
 
       case "abcdtoh":
-         p = b / d;
-         q = (a * d - b * c) / d;
-         r = -1 / d;
-         s = c / d;
+         p = b.divide(d);
+         q = a.multiply(d).subtract(b.multiply(c)).divide(d);
+         r = zero.subtract(one).divide(d);
+         s = c.divide(d);
          break;
 
       case "abcdtog":
-         p = b / d;
-         q = (a * d - b * c) / d;
-         r = -1 / d;
-         s = c / d;
+         p = b.divide(d);
+         q = a.multiply(d).subtract(b.multiply(c)).divide(d);
+         r = zero.subtract(one).divide(d);
+         s = c.divide(d);
          break;
 
       default:
@@ -250,4 +265,6 @@ const convert = () => {
    Q.innerText = q;
    R.innerText = r;
    S.innerText = s;
+
+   data.forEach((x) => (x = null));
 };
