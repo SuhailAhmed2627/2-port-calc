@@ -68,7 +68,10 @@ const handleOnChange = (event) => {
    if (event.target.id == "complex-switch") {
       isComplexNumber = !isComplexNumber;
       const complexElements = document.getElementsByClassName("complex");
-      [...complexElements].forEach((element) => {
+      [...complexElements].forEach((element, index) => {
+         if (index == 1 || index == 5) {
+            element.style.marginRight = "15px";
+         }
          element.style.display = isComplexNumber ? "flex" : "none";
       });
       const xRowElements = document.getElementsByClassName("xrow");
@@ -138,8 +141,8 @@ const convert = () => {
 
       case "ztoabcd":
       case "abcdtoz":
-         p = a / c;
-         q = (a * d - b * c) / c;
+         p = a.divide(c);
+         q = a.multiply(d).subtract(b.multiply(c)).divide(c);
          r = 1 / c;
          s = d / c;
          break;
@@ -239,7 +242,7 @@ const convert = () => {
       if (isComplexNumber) {
          return `${Math.round(1000 * x.real) / 1000} ${
             x.img < 0 ? "-" : "+"
-         } i${Math.abs(Math.round(1000 * x.img) / 1000)}`;
+         } j${Math.abs(Math.round(1000 * x.img) / 1000)}`;
       }
       return Math.round(1000 * x.real) / 1000;
    });
