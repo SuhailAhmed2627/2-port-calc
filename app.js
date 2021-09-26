@@ -85,7 +85,7 @@ const convert = () => {
       selectA.value == selectB.value
    ) {
       Toastify({
-         text: "Select Parameters",
+         text: "Select Appropriate Parameters",
          duration: 3000,
          newWindow: true,
          close: true,
