@@ -78,7 +78,6 @@ const handleOnChange = (event) => {
 };
 
 const convert = () => {
-   console.log(`${selectA.value}to${selectB.value}`);
    if (
       selectA.value == "Select a Parameter" ||
       selectB.value == "Select a Parameter" ||
@@ -253,6 +252,13 @@ const convert = () => {
    }
    [p, q, r, s] = [p, q, r, s].map((x) => {
       if (isComplexNumber) {
+         if (x.real == NaN || x.img == NaN) {
+            x.real = x.real == NaN ? "∞" : Math.round(1000 * x.real) / 1000;
+            x.img =
+               x.img == NaN ? "∞" : Math.abs(Math.round(1000 * x.img) / 1000);
+            return `${x.real} ${x.img < 0 ? "-" : "+"} ${x.img}`;
+         }
+         console.log(x.real, x.img);
          return `${Math.round(1000 * x.real) / 1000} ${
             x.img < 0 ? "-" : "+"
          } j${Math.abs(Math.round(1000 * x.img) / 1000)}`;
@@ -266,3 +272,10 @@ const convert = () => {
 
    data.forEach((x) => (x = null));
 };
+
+document.addEventListener("keyup", (event) => {
+   if (event.code === "Enter") {
+      event.preventDefault();
+      document.getElementById("convert").click();
+   }
+});
