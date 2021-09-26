@@ -1,51 +1,3 @@
-class Complex {
-   constructor(real, img) {
-      this.real = real;
-      this.img = img;
-   }
-
-   add(complexNo) {
-      const ans = new Complex(
-         this.real + complexNo.real,
-         this.img + complexNo.img
-      );
-      data.push(ans);
-      return ans;
-   }
-
-   subtract(complexNo) {
-      const ans = new Complex(
-         this.real - complexNo.real,
-         this.img - complexNo.img
-      );
-      data.push(ans);
-      return ans;
-   }
-
-   multiply(complexNo) {
-      const ans = new Complex(
-         this.real * complexNo.real - this.img * complexNo.img,
-         this.real * complexNo.img + this.img * complexNo.real
-      );
-      data.push(ans);
-      return ans;
-   }
-
-   divide(complexNo) {
-      const ans = new Complex(
-         (this.real * complexNo.real + this.img * complexNo.img) /
-            (complexNo.img * complexNo.img + complexNo.real * complexNo.real),
-         (this.img * complexNo.real - this.real * complexNo.img) /
-            (complexNo.img * complexNo.img + complexNo.real * complexNo.real)
-      );
-      data.push(ans);
-      return ans;
-   }
-}
-
-const one = new Complex(1, 0);
-const zero = new Complex(0, 0);
-
 let data = [];
 
 const A = document.getElementById("A");
@@ -58,8 +10,9 @@ const Bc = document.getElementById("Bc");
 const Cc = document.getElementById("Cc");
 const Dc = document.getElementById("Dc");
 
-const ZContainer = document.getElementById("z-input-container");
+const ZContainers = document.getElementsByClassName("z-input-container");
 const Z0 = document.getElementById("Z0");
+const Z1 = document.getElementById("Z1");
 
 const P = document.getElementById("P");
 const Q = document.getElementById("Q");
@@ -82,7 +35,9 @@ const reset = () => {
 };
 
 const handleOnChange = (event) => {
-   ZContainer.style.display = "none";
+   [...ZContainers].forEach((container) => {
+      container.style.display = "none";
+   });
 
    if (event.target.id == "complex-switch") {
       isComplexNumber = !isComplexNumber;
@@ -107,11 +62,18 @@ const handleOnChange = (event) => {
       reset();
    }
 
-   if (
-      (selectA.value === "s" && selectB.value === "abcd") ||
-      (selectA.value == "abcd" && selectB.value == "s")
-   ) {
-      ZContainer.style.display = "inline";
+   if (selectA.value === "s" || selectB.value === "s") {
+      Toastify({
+         text: "Feature Comming Soon",
+         duration: 3000,
+         destination: "https://github.com/SuhailAhmed2627/2-port-calc",
+         newWindow: true,
+         close: true,
+         gravity: "top", // `top` or `bottom`
+         position: "center", // `left`, `center` or `right`
+         backgroundColor: "red",
+         stopOnFocus: true, // Prevents dismissing of toast on hover
+      }).showToast();
    }
 };
 
@@ -125,16 +87,30 @@ const convert = () => {
       Toastify({
          text: "Select Parameters",
          duration: 3000,
-         destination: "https://github.com/apvarun/toastify-js",
          newWindow: true,
          close: true,
-         gravity: "bottom", // `top` or `bottom`
+         gravity: "top", // `top` or `bottom`
          position: "center", // `left`, `center` or `right`
          backgroundColor: "red",
          stopOnFocus: true, // Prevents dismissing of toast on hover
-         onClick: function () {}, // Callback after click
       }).showToast();
       return;
+   }
+
+   for (let i = 0; i < input.length; i++) {
+      if (input[i].value == "") {
+         Toastify({
+            text: "Input all Values",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            backgroundColor: "red",
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+         }).showToast();
+         return;
+      }
    }
 
    const [a, b, c, d] = input.map((x, index) => {
@@ -249,10 +225,32 @@ const convert = () => {
          s = c.divide(d);
          break;
 
+      case "stoz":
+      case "stoabcd":
+      case "stoy":
+      case "stoh":
+      case "stog":
+      case "ztos":
+      case "abcdtos":
+      case "ytos":
+      case "htos":
+      case "gtos":
+         Toastify({
+            text: "Feature Comming Soon",
+            duration: 3000,
+            destination: "https://github.com/SuhailAhmed2627/2-port-calc",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            backgroundColor: "red",
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+         }).showToast();
+         return;
+
       default:
          break;
    }
-   console.log([p, q, r, s]);
    [p, q, r, s] = [p, q, r, s].map((x) => {
       if (isComplexNumber) {
          return `${Math.round(1000 * x.real) / 1000} ${

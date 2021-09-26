@@ -60,8 +60,8 @@ body {
 
 .card {
    border: none;
-   width: 900px;
-   height: 600px;
+   width: min(900px,90%);
+   height: min(550px,70%);
    background-image: linear-gradient(315deg, #bdd4e7 0%, #a6b7d6 74%);
    backdrop-filter: blur(5px);
    border-radius: 20px;
@@ -148,12 +148,12 @@ input[type=number] {
    width: 100%;
    height: 100%;
 }
-#z-input-container {
+.z-input-container {
    display: none;
    width: 200px;
    margin-bottom: 10px;
 }
-#Z0 {
+#Z0, #Z1 {
    width: 50px;
    max-width: fit-content;
    border: none;
@@ -162,6 +162,34 @@ input[type=number] {
    border-bottom: 1px solid #000000;
 }
 
+h1 {
+   margin-top: 0px;
+   font-size: 3rem;
+}
+
 .complex {
    display: none;
+}
+
+@media (max-width: 992px) {
+   * {
+      font-size: 1rem;
+   }
+
+   .answer-container {
+      flex-direction: column;
+      height: 500px;
+   }
+
+   h1 {
+      text-align: center;
+      font-size: 2rem;
+   }
+
+   .container {
+      width: min(225px,90%);
+   }
+   .card {
+      height: 700px;
+   }
 }
