@@ -179,7 +179,7 @@ const convert = () => {
          p = zero.subtract(d).divide(c);
          q = zero.subtract(one).divide(c);
          r = zero.subtract(a.multiply(d).subtract(b.multiply(c))).divide(c);
-         s = one.divide(c);
+         s = zero.subtract(a).divide(c);
          break;
 
       case "htog":
