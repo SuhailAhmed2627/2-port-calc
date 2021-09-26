@@ -1,7 +1,43 @@
+class Complex {
+   constructor(real, img) {
+      this.real = real;
+      this.img = img;
+   }
+
+   add(complexNo) {
+      return new Complex(this.real + complexNo.real, this.img + complexNo.img);
+   }
+
+   subtract(complexNo) {
+      return new Complex(this.real - complexNo.real, this.img - complexNo.img);
+   }
+
+   multiply(complexNo) {
+      return new Complex(
+         this.real * complexNo.real - this.img * complexNo.img,
+         this.real * complexNo.img + this.img * complexNo.real
+      );
+   }
+
+   divide(complexNo) {
+      return new Complex(
+         (this.real * complexNo.real + this.img * complexNo.img) /
+            (complexNo.img * complexNo.img + complexNo.real * complexNo.real),
+         (this.img * complexNo.real - this.real * complexNo.img) /
+            (complexNo.img * complexNo.img + complexNo.real * complexNo.real)
+      );
+   }
+}
+
 const A = document.getElementById("A");
 const B = document.getElementById("B");
 const C = document.getElementById("C");
 const D = document.getElementById("D");
+
+const Ac = document.getElementById("Ac");
+const Bc = document.getElementById("Bc");
+const Cc = document.getElementById("Cc");
+const Dc = document.getElementById("Dc");
 
 const ZContainer = document.getElementById("z-input-container");
 const Z0 = document.getElementById("Z0");
@@ -13,6 +49,7 @@ const S = document.getElementById("S");
 
 const input = [A, B, C, D];
 const output = [P, Q, R, S];
+const inputC = [Ac, Bc, Cc, Dc];
 
 const selectA = document.getElementById("select-A");
 const selectB = document.getElementById("select-B");
@@ -25,6 +62,14 @@ const reset = () => {
 
 const handleOnChange = (event) => {
    ZContainer.style.display = "none";
+
+   if (event.target.id == "complex-switch") {
+      const complexElements = document.getElementsByClassName("complex");
+      [...complexElements].forEach((element) => {
+         element.style.display = event.target.value == "on" ? "flex" : "none";
+      });
+      event.target.value = event.target.value == "on" ? "off" : "on";
+   }
 
    if (event.target.id == "select-B") {
       reset();

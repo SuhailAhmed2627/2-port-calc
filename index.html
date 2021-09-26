@@ -53,6 +53,17 @@
                   <option value="abcd">ABCD parameter</option>
                </select>
             </div>
+            <div class="form-check form-switch">
+               <input
+                  onchange="handleOnChange(event);"
+                  class="form-check-input"
+                  type="checkbox"
+                  id="complex-switch"
+               />
+               <label class="form-check-label" for="complex-switch"
+                  >Complex Numbers</label
+               >
+            </div>
             <div class="answer-container">
                <div class="container flex-center">
                   <svg
@@ -68,12 +79,20 @@
                   </svg>
                   <div id="a" class="flex-center">
                      <div class="xrow">
-                        <input class="xcol" type="number" id="A" />
-                        <input class="xcol" type="number" id="B" />
+                        <input class="xcol real" type="number" id="A" />
+                        <span class="complex">+i</span>
+                        <input class="xcol complex" type="number" id="Ac" />
+                        <input class="xcol real" type="number" id="B" />
+                        <span class="complex">+i</span>
+                        <input class="xcol complex" type="number" id="Bc" />
                      </div>
                      <div class="xrow">
-                        <input class="xcol" type="number" id="C" />
-                        <input class="xcol" type="number" id="D" />
+                        <input class="xcol real" type="number" id="C" />
+                        <span class="complex">+i</span>
+                        <input class="xcol complex" type="number" id="Cc" />
+                        <input class="xcol real" type="number" id="D" />
+                        <span class="complex">+i</span>
+                        <input class="xcol complex" type="number" id="Dc" />
                      </div>
                   </div>
                </div>
