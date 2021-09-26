@@ -9,5 +9,5 @@ For More Information about ECE Department of NIT Trichy, [Click Here](https://ww
 To Learn about Microwaves and NITT's Contribution. [Click Here](https://www.microwaves101.com/encyclopedias/national-institute-of-technology-trichy)
 
 You are Welcome to Modify this Code to Add Features❤️ \
-Formulas used in thr Program can be found at \
+Formulas used in this Program can be found at \
 [D. A. Frickey, "Conversions between S, Z, Y, H, ABCD, and T parameters which are valid for complex source and load impedances," in IEEE Transactions on Microwave Theory and Techniques, vol. 42, no. 2, pp. 205-211, Feb. 1994, doi: 10.1109/22.275248.](https://ieeexplore.ieee.org/document/275248)
