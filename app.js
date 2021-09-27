@@ -184,9 +184,16 @@ const convert = () => {
 
       case "htog":
          p = d.divide(a.multiply(d).subtract(b.multiply(c)));
-         q = zero.subtract(c).divide(a.multiply(d).subtract(b.multiply(c)));
-         r = zero.subtract(b).divide(a.multiply(d).subtract(b.multiply(c)));
+         q = zero.subtract(b).divide(a.multiply(d).subtract(b.multiply(c)));
+         r = zero.subtract(c).divide(a.multiply(d).subtract(b.multiply(c)));
          s = a.divide(a.multiply(d).subtract(b.multiply(c)));
+         break;
+
+      case "htoabcd":
+         p = zero.subtract(a.multiply(d).subtract(b.multiply(c))).divide(c);
+         q = zero.subtract(a).divide(c);
+         r = zero.subtract(d).divide(c);
+         s = zero.subtract(one).divide(c);
          break;
 
       case "gtoh":
