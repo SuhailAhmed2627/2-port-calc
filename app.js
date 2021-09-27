@@ -88,10 +88,10 @@ const convert = () => {
          duration: 3000,
          newWindow: true,
          close: true,
-         gravity: "top", // `top` or `bottom`
-         position: "center", // `left`, `center` or `right`
+         gravity: "top",
+         position: "center",
          backgroundColor: "red",
-         stopOnFocus: true, // Prevents dismissing of toast on hover
+         stopOnFocus: true,
       }).showToast();
       return;
    }
@@ -103,10 +103,10 @@ const convert = () => {
             duration: 3000,
             newWindow: true,
             close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "center", // `left`, `center` or `right`
+            gravity: "top",
+            position: "center",
             backgroundColor: "red",
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            stopOnFocus: true,
          }).showToast();
          return;
       }
@@ -247,10 +247,10 @@ const convert = () => {
             destination: "https://github.com/SuhailAhmed2627/2-port-calc",
             newWindow: true,
             close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "center", // `left`, `center` or `right`
+            gravity: "top",
+            position: "center",
             backgroundColor: "red",
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            stopOnFocus: true,
          }).showToast();
          return;
 
@@ -259,10 +259,13 @@ const convert = () => {
    }
    [p, q, r, s] = [p, q, r, s].map((x) => {
       if (isComplexNumber) {
-         if (x.real == NaN || x.img == NaN) {
-            x.real = x.real == NaN ? "∞" : Math.round(1000 * x.real) / 1000;
-            x.img =
-               x.img == NaN ? "∞" : Math.abs(Math.round(1000 * x.img) / 1000);
+         console.log("here");
+         if (isNaN(x.real) || isNaN(x.img)) {
+            x.real = isNaN(x.real) ? "∞" : Math.round(1000 * x.real) / 1000;
+            x.img = isNaN(x.img)
+               ? "∞"
+               : Math.abs(Math.round(1000 * x.img) / 1000);
+            console.log(`${x.real} ${x.img < 0 ? "-" : "+"} j${x.img}`);
             return `${x.real} ${x.img < 0 ? "-" : "+"} ${x.img}`;
          }
          console.log(x.real, x.img);
