@@ -225,10 +225,10 @@ const convert = () => {
          break;
 
       case "abcdtog":
-         p = b.divide(d);
-         q = a.multiply(d).subtract(b.multiply(c)).divide(d);
-         r = zero.subtract(one).divide(d);
-         s = c.divide(d);
+         p = c.divide(a);
+         q = zero.subtract(a.multiply(d).subtract(b.multiply(c))).divide(a);
+         r = one.divide(a);
+         s = b.divide(a);
          break;
 
       case "stoz":
