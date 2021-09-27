@@ -198,8 +198,8 @@ const convert = () => {
 
       case "gtoh":
          p = d.divide(a.multiply(d).subtract(b.multiply(c)));
-         q = c.divide(a.multiply(d).subtract(b.multiply(c)));
-         r = b.divide(a.multiply(d).subtract(b.multiply(c)));
+         q = b.divide(a.multiply(d).subtract(b.multiply(c)));
+         r = c.divide(a.multiply(d).subtract(b.multiply(c)));
          s = a.divide(a.multiply(d).subtract(b.multiply(c)));
          break;
 
@@ -259,16 +259,13 @@ const convert = () => {
    }
    [p, q, r, s] = [p, q, r, s].map((x) => {
       if (isComplexNumber) {
-         console.log("here");
          if (isNaN(x.real) || isNaN(x.img)) {
             x.real = isNaN(x.real) ? "∞" : Math.round(1000 * x.real) / 1000;
             x.img = isNaN(x.img)
                ? "∞"
                : Math.abs(Math.round(1000 * x.img) / 1000);
-            console.log(`${x.real} ${x.img < 0 ? "-" : "+"} j${x.img}`);
-            return `${x.real} ${x.img < 0 ? "-" : "+"} ${x.img}`;
+            return `${x.real} ${x.img < 0 ? "-" : "+"} j${x.img}`;
          }
-         console.log(x.real, x.img);
          return `${Math.round(1000 * x.real) / 1000} ${
             x.img < 0 ? "-" : "+"
          } j${Math.abs(Math.round(1000 * x.img) / 1000)}`;
