@@ -14,4 +14,4 @@ To learn more about Two-Ports, [Click Here](https://whimsical.com/2-port-network
 
 You are Welcome to Modify this Code to Add Features❤️ \
 Formulas used in this Program can be found at \
-[D. A. Frickey, "Conversions between S, Z, Y, H, ABCD, and T parameters which are valid for complex source and load impedances," in IEEE Transactions on Microwave Theory and Techniques, vol. 42, no. 2, pp. 205-211, Feb. 1994, doi: 10.1109/22.275248.](https://ieeexplore.ieee.org/document/275248)
+[D. A. Frickey, "Conversions between S, Z, Y, H, ABCD, and T parameters which are valid for complex source and load impedances," in IEEE Transactions on Microwave Theory and Techniques, vol. 42, no. 2, pp. 205-211, Feb. 1994, doi: 10.1109/22.275248.](https://doi.org/10.1109/22.275248)
