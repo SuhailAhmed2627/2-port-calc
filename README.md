@@ -10,7 +10,7 @@ To Learn about Microwaves and NITT's Contribution, [Click Here](https://www.micr
 
 Made with the Help of [Siddharth Rajesh](https://github.com/Sidrox2303)
 
-To learn more about Two-Ports, (Click Here)[https://whimsical.com/2-port-network-parameters-5v1YZFY4qfREEiCvFpomC7]
+To learn more about Two-Ports, [Click Here](https://whimsical.com/2-port-network-parameters-5v1YZFY4qfREEiCvFpomC7)
 
 You are Welcome to Modify this Code to Add Features❤️ \
 Formulas used in this Program can be found at \
